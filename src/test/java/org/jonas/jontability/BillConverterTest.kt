@@ -8,10 +8,13 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.stereotype.Component
 import java.util.*
 
+@Component
 @SpringBootTest
-internal class JontabilityApplicationTests {
+internal class BillConverterTest  {
+
     @Autowired
     var categoryRepository: CategoryRepository? = null
     @Autowired
@@ -20,12 +23,13 @@ internal class JontabilityApplicationTests {
     @Test
     fun contextLoads() {
         val billDto = BillDto()
-        billDto.description = "asuhsad"
-        billDto.value = 23.33
-        billDto.date = Date()
         billDto.categoryId = 2
-        val billEntity = BillMapper.instance.toEntity(billDto, categoryRepository, billRepository)
-        Assertions.assertEquals(billDto.categoryId, billEntity.categoryId)
+        billDto.date = Date()
+        billDto.accountId = 3
+        billDto.value = 2.3
+
+        val billEntity = BillMapper.instance.toEntity(billDto)
+
         Assertions.assertEquals(billDto.value, billEntity.value)
     }
 }
