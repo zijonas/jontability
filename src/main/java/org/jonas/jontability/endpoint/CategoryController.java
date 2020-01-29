@@ -16,15 +16,27 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping(value="/category")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<CategoryDto>> getAll() {
         return ResponseEntity.of(categoryService.getAll());
     }
 
     @PostMapping(value="/category")
+    @CrossOrigin(origins = "http://localhost:4200")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public CategoryDto addCategory(@RequestBody CategoryDto categoryDto) {
-        System.out.println(categoryDto);
+    public CategoryDto add(@RequestBody CategoryDto categoryDto) {
         return categoryService.persist(categoryDto);
     }
+
+    @DeleteMapping(value="/category/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void delete(@PathVariable Integer id) {
+        try {
+            categoryService.delete(id);
+        } catch (Exception as) {
+            as.printStackTrace();
+        }
+    }
+
 
 }
