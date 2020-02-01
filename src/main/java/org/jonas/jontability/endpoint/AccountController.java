@@ -27,4 +27,14 @@ public class AccountController {
         return accountService.persist(accountDto);
     }
 
+
+    @DeleteMapping(value="/account/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void delete(@PathVariable Integer id) {
+        try {
+            accountService.delete(id);
+        } catch (Exception as) {
+            as.printStackTrace();
+        }
+    }
 }

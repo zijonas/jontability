@@ -27,4 +27,14 @@ public class BillController {
         return billService.persist(billDto);
     }
 
+    @DeleteMapping(value="/bill/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void delete(@PathVariable Integer id) {
+        try {
+            billService.delete(id);
+        } catch (Exception as) {
+            as.printStackTrace();
+        }
+    }
+
 }
