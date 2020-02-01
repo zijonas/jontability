@@ -31,7 +31,6 @@ public class BillController {
 
     @DeleteMapping(value="/bill/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
-    @CrossOrigin(origins = "http://localhost:4200")
     public void delete(@PathVariable Integer id) {
         try {
             billService.delete(id);
