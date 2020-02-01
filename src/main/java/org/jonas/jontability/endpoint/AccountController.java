@@ -16,11 +16,13 @@ public class AccountController {
     private AccountService accountService;
 
     @GetMapping(value="/account")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<AccountDto>> getAll() {
         return ResponseEntity.of(accountService.getAll());
     }
 
     @PostMapping(value="/account")
+    @CrossOrigin(origins = "http://localhost:4200")
     @ResponseStatus(code = HttpStatus.CREATED)
     public AccountDto addAccount(@RequestBody AccountDto accountDto) {
         System.out.println(accountDto);

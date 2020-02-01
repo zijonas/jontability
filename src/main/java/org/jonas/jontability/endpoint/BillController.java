@@ -16,11 +16,13 @@ public class BillController {
     private BillService billService;
 
     @GetMapping(value="/bill")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<BillDto>> getAll() {
         return ResponseEntity.of(billService.getAll());
     }
 
     @PostMapping(value="/bill")
+    @CrossOrigin(origins = "http://localhost:4200")
     @ResponseStatus(code = HttpStatus.CREATED)
     public BillDto addBill(@RequestBody BillDto billDto) {
         System.out.println(billDto);
@@ -28,6 +30,7 @@ public class BillController {
     }
 
     @DeleteMapping(value="/bill/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     @CrossOrigin(origins = "http://localhost:4200")
     public void delete(@PathVariable Integer id) {
         try {
