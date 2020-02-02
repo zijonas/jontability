@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "bill")
+@Table(name = "post")
 @Getter @Setter
 @ToString
 public class PostEntity implements BasicEntity {

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -17,14 +18,18 @@ public class PostController {
 
     @GetMapping(value="/post")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<List<PostDto>> getAll() {
-        return ResponseEntity.of(postService.getAll());
+    public ResponseEntity<List<PostDto>> getAll(@RequestParam Date from, @RequestParam Date to) {
+        if(from == null || to == null) {
+            return ResponseEntity.of(postService.getAll());
+        } else {
+            return ResponseEntity.of(postService.getAllInRange(from, to));
+        }
     }
 
     @PostMapping(value="/post")
     @CrossOrigin(origins = "http://localhost:4200")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public PostDto addBill(@RequestBody PostDto postDto) {
+    public PostDto add(@RequestBody PostDto postDto) {
         System.out.println(postDto);
         return postService.persist(postDto);
     }

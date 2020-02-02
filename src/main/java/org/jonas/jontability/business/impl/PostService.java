@@ -9,6 +9,7 @@ import org.jonas.jontability.persistence.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -31,6 +32,14 @@ public class PostService implements IBasicService<PostDto> {
         return Optional.of(postRepository.findAll().stream()
                 .map(PostMapper.instance::toDto)
                 .collect(Collectors.toList()));
+    }
+
+    public Optional<List<PostDto>> getAllInRange(Date from, Date to) {
+        return Optional.of(
+            postRepository.findByDateGreaterThanAndDateLessThan(from, to).stream()
+                    .map(PostMapper.instance::toDto)
+                    .collect(Collectors.toList())
+        );
     }
 
     @Override
