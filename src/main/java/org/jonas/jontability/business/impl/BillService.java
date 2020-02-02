@@ -3,6 +3,7 @@ package org.jonas.jontability.business.impl;
 import org.jonas.jontability.Mapper.BillMapper;
 import org.jonas.jontability.business.IBasicService;
 import org.jonas.jontability.dto.BillDto;
+import org.jonas.jontability.persistence.AccountRepository;
 import org.jonas.jontability.persistence.BillRepository;
 import org.jonas.jontability.persistence.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class BillService implements IBasicService<BillDto> {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private AccountRepository accountRepository;
+
     @Override
     public Optional<List<BillDto>> getAll() {
 
@@ -38,7 +42,7 @@ public class BillService implements IBasicService<BillDto> {
     public BillDto persist(BillDto billDto) {
         return BillMapper.instance.toDto(
                 billRepository.save(
-                        BillMapper.instance.toEntity(billDto, categoryRepository, billRepository)
+                        BillMapper.instance.toEntity(billDto, categoryRepository, billRepository, accountRepository)
                 )
         );
     }
