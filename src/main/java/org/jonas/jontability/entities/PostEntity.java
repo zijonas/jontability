@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name = "bill")
 @Getter @Setter
 @ToString
-public class BillEntity implements BasicEntity {
+public class PostEntity implements BasicEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, insertable = false)
@@ -36,6 +36,9 @@ public class BillEntity implements BasicEntity {
 
     @Column(name = "date")
     private Date date;
+
+    @Column(name = "invoice")
+    private boolean invoice;
 
     @Column(name = "value")
     private Double value;

@@ -2,8 +2,8 @@ package org.jonas.jontability.Mapper;
 
 public interface BasicMapper<E, D> {
 
-	D toDto(E Entity);
+	D toDto(E entity);
 
-	E toEntity(D billDto);
+	E toEntity(D dto);
 
 }

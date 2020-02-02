@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class BillDto {
+public class PostDto {
     private Integer id;
     private Integer categoryId;
     private Integer accountId;

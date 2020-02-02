@@ -1,7 +1,7 @@
 package org.jonas.jontability.endpoint;
 
-import org.jonas.jontability.business.impl.BillService;
-import org.jonas.jontability.dto.BillDto;
+import org.jonas.jontability.business.impl.PostService;
+import org.jonas.jontability.dto.PostDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,30 +10,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class BillController {
+public class PostController {
 
     @Autowired
-    private BillService billService;
+    private PostService postService;
 
-    @GetMapping(value="/bill")
+    @GetMapping(value="/post")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<List<BillDto>> getAll() {
-        return ResponseEntity.of(billService.getAll());
+    public ResponseEntity<List<PostDto>> getAll() {
+        return ResponseEntity.of(postService.getAll());
     }
 
-    @PostMapping(value="/bill")
+    @PostMapping(value="/post")
     @CrossOrigin(origins = "http://localhost:4200")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public BillDto addBill(@RequestBody BillDto billDto) {
-        System.out.println(billDto);
-        return billService.persist(billDto);
+    public PostDto addBill(@RequestBody PostDto postDto) {
+        System.out.println(postDto);
+        return postService.persist(postDto);
     }
 
-    @DeleteMapping(value="/bill/{id}")
+    @DeleteMapping(value="/post/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
     public void delete(@PathVariable Integer id) {
         try {
-            billService.delete(id);
+            postService.delete(id);
         } catch (Exception as) {
             as.printStackTrace();
         }
