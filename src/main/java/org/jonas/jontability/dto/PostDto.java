@@ -10,6 +10,7 @@ public class PostDto {
     private Integer categoryId;
     private Integer accountId;
     private String description;
+    private boolean invoice;
     private Date date;
     private Double value;
 }

@@ -21,14 +21,14 @@ public class PostEntity implements BasicEntity {
     private Integer categoryId;
 
     @JoinColumn(name = "category_id")
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private CategoryEntity categoryEntity;
 
     @Column(name = "account_id", insertable = false, updatable = false)
     private Integer accountId;
 
     @JoinColumn(name = "account_id")
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private AccountEntity accountEntity;
 
     @Column(name = "description")

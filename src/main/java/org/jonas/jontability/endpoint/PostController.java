@@ -18,7 +18,7 @@ public class PostController {
 
     @GetMapping(value="/post")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<List<PostDto>> getAll(@RequestParam Date from, @RequestParam Date to) {
+    public ResponseEntity<List<PostDto>> getAll(@RequestParam(required = false) Date from, @RequestParam(required = false) Date to) {
         if(from == null || to == null) {
             return ResponseEntity.of(postService.getAll());
         } else {
