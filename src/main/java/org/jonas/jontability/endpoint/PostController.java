@@ -17,17 +17,17 @@ public class PostController {
     private PostService postService;
 
     @GetMapping(value="/post")
-    @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<List<PostDto>> getAll(@RequestParam(required = false) Date from, @RequestParam(required = false) Date to) {
-        if(from == null || to == null) {
+    @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
+    public ResponseEntity<List<PostDto>> getAll(@RequestParam(required = false) long from, @RequestParam(required = false) long to) {
+        if(from == 0 || to == 0) {
             return ResponseEntity.of(postService.getAll());
         } else {
-            return ResponseEntity.of(postService.getAllInRange(from, to));
+            return ResponseEntity.of(postService.getAllInRange(new Date(from), new Date(to)));
         }
     }
 
     @PostMapping(value="/post")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
     @ResponseStatus(code = HttpStatus.CREATED)
     public PostDto add(@RequestBody PostDto postDto) {
         System.out.println(postDto);
@@ -35,7 +35,7 @@ public class PostController {
     }
 
     @DeleteMapping(value="/post/{id}")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
     public void delete(@PathVariable Integer id) {
         try {
             postService.delete(id);

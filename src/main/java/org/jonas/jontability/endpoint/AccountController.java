@@ -16,13 +16,13 @@ public class AccountController {
     private AccountService accountService;
 
     @GetMapping(value="/account")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
     public ResponseEntity<List<AccountDto>> getAll() {
         return ResponseEntity.of(accountService.getAll());
     }
 
     @PostMapping(value="/account")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
     @ResponseStatus(code = HttpStatus.CREATED)
     public AccountDto addAccount(@RequestBody AccountDto accountDto) {
         System.out.println(accountDto);
@@ -31,7 +31,7 @@ public class AccountController {
 
 
     @DeleteMapping(value="/account/{id}")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
     public void delete(@PathVariable Integer id) {
         try {
             accountService.delete(id);
