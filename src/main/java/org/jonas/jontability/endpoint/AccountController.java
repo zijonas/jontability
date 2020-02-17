@@ -25,7 +25,6 @@ public class AccountController {
     @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
     @ResponseStatus(code = HttpStatus.CREATED)
     public AccountDto addAccount(@RequestBody AccountDto accountDto) {
-        System.out.println(accountDto);
         return accountService.persist(accountDto);
     }
 

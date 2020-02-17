@@ -1,8 +1,6 @@
 package org.jonas.jontability
 
-import org.jonas.jontability.persistence.AccountRepository
-import org.jonas.jontability.persistence.PostRepository
-import org.jonas.jontability.persistence.CategoryRepository
+import org.jonas.jontability.imports.ExcelImportService
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -10,15 +8,10 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 internal class JontabilityApplicationTests {
     @Autowired
-    var categoryRepository: CategoryRepository? = null
-
-    @Autowired
-    var postRepository: PostRepository? = null
-
-    @Autowired
-    var accountRepository: AccountRepository? = null
+    var excelImportService: ExcelImportService? = null
 
     @Test
     fun contextLoads() {
+        excelImportService?.importFile("/home/jonas/Downloads/kk.csv", 2019)
     }
 }

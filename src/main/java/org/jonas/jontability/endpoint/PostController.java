@@ -18,8 +18,8 @@ public class PostController {
 
     @GetMapping(value="/post")
     @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
-    public ResponseEntity<List<PostDto>> getAll(@RequestParam(required = false) long from, @RequestParam(required = false) long to) {
-        if(from == 0 || to == 0) {
+    public ResponseEntity<List<PostDto>> getAll(@RequestParam(required = false) Long from, @RequestParam(required = false) Long to) {
+        if(from == null || to == null) {
             return ResponseEntity.of(postService.getAll());
         } else {
             return ResponseEntity.of(postService.getAllInRange(new Date(from), new Date(to)));
