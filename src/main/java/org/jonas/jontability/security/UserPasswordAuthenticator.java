@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 @Resource
 public class UserPasswordAuthenticator implements AuthenticationProvider {
 
-	private UserDetailsService userDetailsService;
+	private final UserDetailsService userDetailsService;
 
 	public UserPasswordAuthenticator(UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
