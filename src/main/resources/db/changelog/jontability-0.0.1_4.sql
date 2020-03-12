@@ -8,16 +8,17 @@ create table user_data (
 
 --changeset jziel:jontability-0.0.1_4_1
 create table authority (
+    id SERIAL,
     username varchar(50) not null,
-    authority varchar(50) not null,
+    role varchar(50) not null,
     constraint fk_authority_user_data foreign key(username) references user_data(username)
 );
-create unique index ix_auth_username on authority (username,authority);
+create unique index ix_auth_username on authority (username,role);
 
 --changeset jziel:jontability-0.0.1_4_2
-insert into user_data ("admin", "$2a$10$9iKlo/EJP.R716HLYT9P0..bNh7WPHjwwKwJSCPaxlFRwy3dVj3he", 1);
-insert into user_data ("user", "$2a$10$9iKlo/EJP.R716HLYT9P0..bNh7WPHjwwKwJSCPaxlFRwy3dVj3he", 1);
+insert into user_data (username, password, enabled) values ('admin', '$2a$10$9iKlo/EJP.R716HLYT9P0..bNh7WPHjwwKwJSCPaxlFRwy3dVj3he', true);
+insert into user_data (username, password, enabled) values ('user', '$2a$10$9iKlo/EJP.R716HLYT9P0..bNh7WPHjwwKwJSCPaxlFRwy3dVj3he', true);
 
 --changeset jziel:jontability-0.0.1_4_3
-insert into authority ("admin", "ROLE_ADMIN");
-insert into authority ("user", "ROLE_USER");
+insert into authority (username, role) values ('admin', 'ROLE_ADMIN');
+insert into authority (username, role) values ('user', 'ROLE_USER');
