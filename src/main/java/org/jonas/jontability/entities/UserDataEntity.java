@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Getter @Setter
-@ToString
 @Table(name = "user_data")
 @Entity
 public class UserDataEntity {

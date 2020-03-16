@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transaction;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -19,6 +21,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	}
 
 	@Override
+	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Optional<UserDataEntity> user = userDataRepository.findById(username);
 

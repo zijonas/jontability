@@ -7,7 +7,6 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Getter @Setter
-@ToString
 @Entity
 @Table(name = "authority")
 public class AuthorityEntity {
