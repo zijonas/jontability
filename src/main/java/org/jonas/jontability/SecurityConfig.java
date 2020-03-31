@@ -35,8 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/category").permitAll()
                 .antMatchers("/post").hasAnyRole("USER", "ADMIN")
-                .and()
-                .httpBasic();
+                .and().httpBasic();
     }
 
     @Bean
