@@ -2,12 +2,14 @@ package org.jonas.jontability.dto.authentication;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class AuthenticationRequest {
-    private final String username;
-    private final String password;
+    private String username;
+    private String password;
 }
