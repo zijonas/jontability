@@ -21,6 +21,7 @@ public class CategoryController {
     @GetMapping(value="/category")
     @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
     public ResponseEntity<List<CategoryDto>> getAll() {
+        System.out.println("aosidjasoidjsaoidjasoidjasoidjsaoidjasiodjsaoidjasoidjsaoidjsao");
         return ResponseEntity.of(categoryService.getAll());
     }
 
