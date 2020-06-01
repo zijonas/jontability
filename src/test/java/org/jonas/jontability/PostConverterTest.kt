@@ -1,6 +1,6 @@
 package org.jonas.jontability
 
-import org.jonas.jontability.Mapper.PostMapper
+import org.jonas.jontability.mapper.PostMapper
 import org.jonas.jontability.dto.PostDto
 import org.jonas.jontability.persistence.AccountRepository
 import org.jonas.jontability.persistence.PostRepository

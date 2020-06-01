@@ -1,6 +1,6 @@
 package org.jonas.jontability.business.impl;
 
-import org.jonas.jontability.Mapper.CategoryMapper;
+import org.jonas.jontability.mapper.CategoryMapper;
 import org.jonas.jontability.business.IBasicService;
 import org.jonas.jontability.dto.CategoryDto;
 import org.jonas.jontability.persistence.CategoryRepository;

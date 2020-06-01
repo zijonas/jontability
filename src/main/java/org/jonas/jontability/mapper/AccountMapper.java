@@ -1,4 +1,4 @@
-package org.jonas.jontability.Mapper;
+package org.jonas.jontability.mapper;
 
 import org.jonas.jontability.dto.AccountDto;
 import org.jonas.jontability.entities.AccountEntity;

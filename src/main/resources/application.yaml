@@ -1,0 +1,24 @@
+spring :
+  liquibase:
+    change-log: classpath:db/changelog-master.xml
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jontability
+    username: administrator
+    password: 590979
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  application:
+    name: jontability
+
+server:
+  servlet:
+    context-path: /api
+  port: 8080
+
+logging:
+  level:
+    liquibase: INFO
+

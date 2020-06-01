@@ -1,4 +1,4 @@
-package org.jonas.jontability.Mapper;
+package org.jonas.jontability.mapper;
 
 public interface BasicMapper<E, D> {
 

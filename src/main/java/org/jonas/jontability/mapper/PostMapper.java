@@ -1,4 +1,4 @@
-package org.jonas.jontability.Mapper;
+package org.jonas.jontability.mapper;
 
 import org.jonas.jontability.dto.PostDto;
 import org.jonas.jontability.entities.PostEntity;

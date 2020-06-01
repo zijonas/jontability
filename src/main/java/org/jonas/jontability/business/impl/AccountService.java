@@ -1,6 +1,6 @@
 package org.jonas.jontability.business.impl;
 
-import org.jonas.jontability.Mapper.AccountMapper;
+import org.jonas.jontability.mapper.AccountMapper;
 import org.jonas.jontability.business.IBasicService;
 import org.jonas.jontability.dto.AccountDto;
 import org.jonas.jontability.persistence.AccountRepository;
