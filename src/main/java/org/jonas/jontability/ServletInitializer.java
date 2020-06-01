@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServletInitializer extends SpringBootServletInitializer {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(JontabilityApplication.class);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(JontabilityApplication.class);
+    }
 }

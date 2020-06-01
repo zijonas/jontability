@@ -1,7 +1,6 @@
 package org.jonas.jontability.endpoint.security;
 
 import lombok.AllArgsConstructor;
-import org.apache.coyote.Response;
 import org.jonas.jontability.dto.authentication.AuthenticationRequest;
 import org.jonas.jontability.dto.authentication.AuthenticationResponse;
 import org.jonas.jontability.security.UserDetailServiceImpl;
@@ -11,7 +10,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
@@ -22,7 +24,7 @@ public class AuthenticationController {
     private final JwtUtil jwtUtil;
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
+
     public ResponseEntity<?> authenticate(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         try {
             authenticationManager.authenticate(

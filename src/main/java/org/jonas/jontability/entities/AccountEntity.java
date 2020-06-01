@@ -1,16 +1,10 @@
 package org.jonas.jontability.entities;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import org.jonas.jontability.types.AccountType;
 
 import javax.persistence.*;
 
-@Entity
 @Table(name = "account")
-@Getter @Setter
-@ToString
 public class AccountEntity {
 
     @Id
@@ -23,4 +17,28 @@ public class AccountEntity {
 
     @Column(name = "type")
     private AccountType type;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public AccountType getType() {
+        return type;
+    }
+
+    public void setType(AccountType type) {
+        this.type = type;
+    }
 }

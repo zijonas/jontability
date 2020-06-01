@@ -1,16 +1,10 @@
 package org.jonas.jontability.entities;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "post")
-@Getter @Setter
-@ToString
 public class PostEntity implements BasicEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,4 +36,77 @@ public class PostEntity implements BasicEntity {
 
     @Column(name = "value")
     private Double value;
+
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public CategoryEntity getCategoryEntity() {
+        return categoryEntity;
+    }
+
+    public void setCategoryEntity(CategoryEntity categoryEntity) {
+        this.categoryEntity = categoryEntity;
+    }
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
+
+    public AccountEntity getAccountEntity() {
+        return accountEntity;
+    }
+
+    public void setAccountEntity(AccountEntity accountEntity) {
+        this.accountEntity = accountEntity;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public boolean isInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(boolean invoice) {
+        this.invoice = invoice;
+    }
+
+    public Double getValue() {
+        return value;
+    }
+
+    public void setValue(Double value) {
+        this.value = value;
+    }
 }

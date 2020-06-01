@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-internal class JontabilityApplicationTests {
-    @Autowired
-    var excelImportService: ExcelImportService? = null
+internal class JontabilityApplicationTests(@field:Autowired var excelImportService: ExcelImportService? = null) {
 
     @Test
     fun contextLoads() {

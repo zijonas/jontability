@@ -1,10 +1,10 @@
-package org.jonas.jontability
+package org.jonas.jontability.post
 
-import org.jonas.jontability.mapper.PostMapper
 import org.jonas.jontability.dto.PostDto
+import org.jonas.jontability.mapper.PostMapper
 import org.jonas.jontability.persistence.AccountRepository
-import org.jonas.jontability.persistence.PostRepository
 import org.jonas.jontability.persistence.CategoryRepository
+import org.jonas.jontability.persistence.PostRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

@@ -2,7 +2,6 @@ package org.jonas.jontability.endpoint;
 
 import org.jonas.jontability.business.impl.CategoryService;
 import org.jonas.jontability.dto.CategoryDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,22 +17,18 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping(value="/category")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
+    @GetMapping(value = "/category")
     public ResponseEntity<List<CategoryDto>> getAll() {
-        System.out.println("aosidjasoidjsaoidjasoidjasoidjsaoidjasiodjsaoidjasoidjsaoidjsao");
         return ResponseEntity.of(categoryService.getAll());
     }
 
-    @PostMapping(value="/category")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
+    @PostMapping(value = "/category")
     @ResponseStatus(code = HttpStatus.CREATED)
     public CategoryDto add(@RequestBody CategoryDto categoryDto) {
         return categoryService.persist(categoryDto);
     }
 
-    @DeleteMapping(value="/category/{id}")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.178.28:4200"})
+    @DeleteMapping(value = "/category/{id}")
     public void delete(@PathVariable Integer id) {
         try {
             categoryService.delete(id);
