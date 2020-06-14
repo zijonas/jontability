@@ -1,6 +1,5 @@
 package org.jonas.jontability.endpoint.security;
 
-import lombok.AllArgsConstructor;
 import org.jonas.jontability.dto.authentication.AuthenticationRequest;
 import org.jonas.jontability.dto.authentication.AuthenticationResponse;
 import org.jonas.jontability.security.UserDetailServiceImpl;
@@ -15,13 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@AllArgsConstructor
 @RestController
 public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;
     private final UserDetailServiceImpl userDetailService;
     private final JwtUtil jwtUtil;
+
+    public AuthenticationController(AuthenticationManager authenticationManager, UserDetailServiceImpl userDetailService, JwtUtil jwtUtil) {
+        this.authenticationManager = authenticationManager;
+        this.userDetailService = userDetailService;
+        this.jwtUtil = jwtUtil;
+    }
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 
