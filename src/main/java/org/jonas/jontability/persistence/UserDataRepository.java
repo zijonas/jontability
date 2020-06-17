@@ -1,6 +1,6 @@
 package org.jonas.jontability.persistence;
 
-import org.jonas.jontability.entities.UserDataEntity;
+import org.jonas.jontability.persistence.entities.UserDataEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

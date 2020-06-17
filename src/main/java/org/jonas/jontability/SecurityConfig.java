@@ -1,6 +1,6 @@
 package org.jonas.jontability;
 
-import org.jonas.jontability.security.filter.JwtFilter;
+import org.jonas.jontability.api.filter.JwtFilter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;

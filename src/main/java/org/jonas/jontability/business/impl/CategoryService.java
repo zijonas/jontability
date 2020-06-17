@@ -1,8 +1,8 @@
 package org.jonas.jontability.business.impl;
 
-import org.jonas.jontability.mapper.CategoryMapper;
 import org.jonas.jontability.business.IBasicService;
-import org.jonas.jontability.dto.CategoryDto;
+import org.jonas.jontability.business.dto.CategoryDto;
+import org.jonas.jontability.business.mapper.CategoryMapper;
 import org.jonas.jontability.persistence.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

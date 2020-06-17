@@ -1,11 +1,11 @@
 package org.jonas.jontability.imports;
 
 import com.google.common.collect.Maps;
+import org.jonas.jontability.business.dto.AccountDto;
+import org.jonas.jontability.business.dto.PostDto;
 import org.jonas.jontability.business.impl.AccountService;
 import org.jonas.jontability.business.impl.CategoryService;
 import org.jonas.jontability.business.impl.PostService;
-import org.jonas.jontability.dto.AccountDto;
-import org.jonas.jontability.dto.PostDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;

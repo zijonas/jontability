@@ -3,11 +3,12 @@ package org.jonas.jontability.imports;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import org.jonas.jontability.dto.PostDto;
+import org.jonas.jontability.business.dto.PostDto;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.*;
 
 public class ExcelImportParser {
@@ -51,7 +52,7 @@ public class ExcelImportParser {
     private static PostDto createPost(Object element, int month, int year) {
         PostDto postDto = new PostDto();
         postDto.setCategoryId(155);//TODO dynamic
-        postDto.setDate(new GregorianCalendar(year, month ,1).getTime());
+        postDto.setDate(LocalDate.of(year, month, 1));
         postDto.setValue(Double.parseDouble(((String) element).replace(',', '.')));
         return postDto;
     }

@@ -1,16 +1,16 @@
 package org.jonas.jontability.post
 
-import org.jonas.jontability.dto.PostDto
-import org.jonas.jontability.mapper.PostMapper
+import org.jonas.jontability.business.dto.PostDto
+import org.jonas.jontability.business.mapper.PostMapper
 import org.jonas.jontability.persistence.AccountRepository
 import org.jonas.jontability.persistence.CategoryRepository
-import org.jonas.jontability.persistence.PostRepository
+import org.jonas.jontability.persistence.IPostRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.stereotype.Component
-import java.util.*
+import java.time.LocalDate
 
 @Component
 @SpringBootTest
@@ -20,7 +20,7 @@ internal class PostConverterTest  {
     var categoryRepository: CategoryRepository? = null
 
     @Autowired
-    var postRepository: PostRepository? = null
+    var postRepository: IPostRepository? = null
 
     @Autowired
     var accountRepository: AccountRepository? = null
@@ -29,7 +29,7 @@ internal class PostConverterTest  {
     fun contextLoads() {
         val postDto = PostDto()
         postDto.categoryId = 1
-        postDto.date = Date()
+        postDto.date = LocalDate.now()
         postDto.accountId = 1
         postDto.value = 2.3
         postDto.description = "aisdiasd"

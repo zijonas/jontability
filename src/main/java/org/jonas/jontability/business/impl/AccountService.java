@@ -1,8 +1,8 @@
 package org.jonas.jontability.business.impl;
 
-import org.jonas.jontability.mapper.AccountMapper;
 import org.jonas.jontability.business.IBasicService;
-import org.jonas.jontability.dto.AccountDto;
+import org.jonas.jontability.business.dto.AccountDto;
+import org.jonas.jontability.business.mapper.AccountMapper;
 import org.jonas.jontability.persistence.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
