@@ -21,7 +21,7 @@ public class PostEntity implements BasicEntity {
     @Column(name = "account_id", insertable = false, updatable = false)
     private Integer accountId;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "account_id")
     private AccountEntity accountEntity;
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IPostRepository extends JpaRepository<PostEntity, Integer> {
 
-	List<PostEntity> findByDateGreaterThanAndDateLessThan(LocalDate dateStart, LocalDate dateEnd);
+	List<PostEntity> findByDateGreaterThanEqualAndDateLessThanEqual(LocalDate dateStart, LocalDate dateEnd);
 
 	@Query(value = "select DISTINCT year(date) from PostEntity")
 	List<Integer> distinctYears();

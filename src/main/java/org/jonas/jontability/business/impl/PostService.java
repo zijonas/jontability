@@ -46,7 +46,7 @@ public class PostService implements IPostService {
         LocalDate dateEnd = toDateFromFilter(postFilter);
         log.debug("Date From to: " + dateStart.toString() + '-' + dateEnd.toString());
         return Optional.of(
-                postRepository.findByDateGreaterThanAndDateLessThan(dateStart, dateEnd).stream()
+                postRepository.findByDateGreaterThanEqualAndDateLessThanEqual(dateStart, dateEnd).stream()
                         .map(PostMapper.instance::toDto)
                         .collect(Collectors.toList())
         );

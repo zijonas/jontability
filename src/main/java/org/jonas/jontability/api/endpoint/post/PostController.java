@@ -36,11 +36,7 @@ public class PostController {
 
     @DeleteMapping(value = "/post/{id}")
     public void delete(@PathVariable Integer id) {
-        try {
-            postService.delete(id);
-        } catch (Exception as) {
-            as.printStackTrace();
-        }
+        postService.delete(id);
     }
 
     @GetMapping(value = "/post/years")
